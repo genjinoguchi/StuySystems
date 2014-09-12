@@ -1,0 +1,29 @@
+Aim: Time to C what we can do.
+
+DO NOw: What command line commands would do the folowing
+
+1) MOve foo.java from Desktop to Documents.
+	-> mv Desktop/foo.java Documents/
+2)Remove all .class files
+	-> rm *.class
+3)Figure out what gcc does
+	-> C compiler
+4) Connect to homer.stuy.edu from someplace else
+	-> ssh genjinoguchi@homer.stuy.edu
+5)COpy woohoo.c form your home directory on lisa.stuy.edu to a code/ driectory on home (Assume you are working on homer itself)
+	->scp dw@lisa.stuy.edu:~/woohoo.c code/
+	In fact, you don't actually need the ~/
+
+ Language- Written by Denis Ritchie and Brian Kerningham
+
+
+Example c file:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	printf("print");
+	return 0;
+
+}

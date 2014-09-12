@@ -1,0 +1,32 @@
+Aim: A vast array of possibiliites
+===
+
+
+Do now: What are properties of java arrays?
+
+* Fixed size upon instantiation
+* O(1) access
+* Can only hold one type
+* Size can be set at runtime
+* Linear order is maintained.
+* Can be multi-dimensional
+* There is a default value for things.
+* You can't go out of bounds.
+
+
+Memory Management
+* Memory allocation can either happen at compile time or at runtime (compile time vs dynamic)
+* Compiler allocation
+	Packaged with the binary of the program
+	There is no standard default value.
+	During runtime, it will give you a different value every time.
+	There is no length function. HOWEVER, you can find the length of the array by dividing sizeof(ray) by sizeof(int).
+	
+	Musthave a fixed size
+	There is no length function
+	There is no boundary checking.
+
+	Examples: float a
+		int b[5] <- The number inside has to be a static value. CANNOT be a variable.
+	
+

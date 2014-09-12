@@ -1,0 +1,74 @@
+Notes 9/10/14
+
+Aim: Variables are the spice of life.
+
+Do Now: What is the smallest variable type that could be used to store the following values (using standard sizes).
+
+1) 5		char
+2) -30000	short - there are 4 bytes in a short. Smallest - -2^15, which is around 32k.
+3) 255		short
+4) 5,000,000,000long - there are 8 bytes in a long. Largest positive number- 2^64 -1
+
+Data Types and Variables
+	Character literals are single characters inside '' -- ex 'a', '*'
+
+	String literals exist, even if there is no Sting data type. ex. "hello", "you smell"
+
+	Variables cannot be declared inside for loops, but they can be initialized.
+
+	int x;
+
+	Any variable type can be declared an "unsigned" variable.
+	This signifies the variables will never be negative.
+		The lower bound of any unsigned varibaleis .
+		The upper bound wil be greater than the signed version.
+
+
+	unsigned char x;
+	0 <= x <= 255;
+
+Functions
+	printf
+		THe most important C function. Whoop printing!
+		Prints formatted strings.
+		printf(<string literal>, <var1>, <var2>, ...)
+		Does not add a new line at the end.
+
+		If you want to print variables, you include formatting placeholders in your string literal.
+		int i = 5;
+		printf("i is %d", i);
+
+	Type	Formatting Character
+	int		%d
+	long		%l actually it's most likely %dl because of the conflict betwen %l and %ld.
+	float		%f
+	double		%ld
+			%0.<x>f will provide x digits after the floating point. It actually rounds and not truncates/floors.
+	char		%c
+	string		%s
+
+
+
+Example code
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	int x,y;
+	double d, e;
+	char a, c;
+
+	printf("Hello Everyone!\n");
+
+	x = 214;
+	d = 513.726;
+	a = 'q';
+
+	printf("%d, %lf, %c\n", x, d, a);
+
+	return 0;
+}
+
+The different primitives will wrap around if you go past the maximum.
+Same with unsigned.

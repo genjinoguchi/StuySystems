@@ -1,0 +1,36 @@
+Aim: c what I did there
+
+DN: 
+	List the java primitive variable types.
+	- Int, short, long
+	- float, long
+	- char
+	- boolean
+	- array
+	- byte - 8 bit integer. -128 <--> 127
+	-
+
+Differences for C:
+	All C primitives are numeric.
+	The only difference is floating point vs integer and size of variable.
+	Size can be platform dependant (Depending on your operating system and your hardware)
+		sizeof(<TYPE>) -> Tells you the number of bytes it takes up.
+		sizeof(int)
+
+Type		Standard Size
+
+int		4
+short		2
+long		8
+float		4
+double		8
+char		1
+
+All boolean values are numbers.
+0 is false.
+All other numbers are true.
+
+Awesome line: while(x)
+Not awesome line: if(x=1){
+			//Sonofabitch
+		} 
