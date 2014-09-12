@@ -1,0 +1,18 @@
+9-12-14
+
+Pointers - Now the fun really begins.
+
+ Variables designed to store meory addresses (think references in java)
+ * is used to declare a variable as a pointer type
+   ex. int *p, double *q, char *r
+ * is also used as the de-reference operator.
+   It accesses the value at memory location stored in a pointer.
+ & -  address of a variable
+   ex. p = &x;
+
+Every pointer is the same size-- it has to do with the amount of bits that you computer processor is.
+
+
+In java, we had nullpointerexceptions: These indicated that there was a pointer that pointed to the 0 memory slot. (null)
+
+
