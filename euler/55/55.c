@@ -21,13 +21,15 @@ int isPalindrome(long x){
     length = length(x);
     isPalindrome = 0;
     for(x=0;x<length/2;x++){
-      if(
+      if()
     }
     
-  
+  }  
 
 
 }
+
+  int[] parse(long x){
 
 
 
