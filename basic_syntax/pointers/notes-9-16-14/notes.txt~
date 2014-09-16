@@ -1,0 +1,16 @@
+Aim: Try nto to hurt yourself, the point is sharp.
+
+DN: Write a C program that does the following
+    1) Declare int, double and char poitners
+    2) Print out the pointer's address for each (as an unsigned long);
+    3) Add 1 to each poitner.
+    4) Print out teh addresses again.
+
+The int pointer, using its type, will change its address.
+An int is of size 4; if you added 1 to the pointer, then it increases it by 4.
+(Generally it increases it by the size * 4)
+
+int *ip;
+long *lp;
+
+Pointer arithmetic only works with + and -.

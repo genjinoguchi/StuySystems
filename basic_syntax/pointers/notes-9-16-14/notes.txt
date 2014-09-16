@@ -1,0 +1,35 @@
+Aim: Try nto to hurt yourself, the point is sharp.
+
+DN: Write a C program that does the following
+    1) Declare int, double and char poitners
+    2) Print out the pointer's address for each (as an unsigned long);
+    3) Add 1 to each poitner.
+    4) Print out teh addresses again.
+
+The int pointer, using its type, will change its address.
+An int is of size 4; if you added 1 to the pointer, then it increases it by 4.
+(Generally it increases it by the size * 4)
+
+	   int *ip;
+	   long *lp;
+     
+     Pointer arithmetic only works with + and -.
+
+
+
+De-referencing:
+	* is also used as the de-reference operator.
+	It accesses the value at the memory locatino stored in a pointer.
+	
+	int i = 5;
+	int *ip = &i;
+	*ip++;	  This will set i to 6.
+
+	Array variables are immutable pointers.
+
+	int ray[5];
+	int *rp = ray; //Ray is actually a pointer that points to the array.
+
+	ray[3] is the equivalent of *(rp + 3).
+
+3[ray]

@@ -10,6 +10,7 @@ int main(){
   return 0;
 }
 
+/*
 int isPalindrome(long x){
   short length;
   short x;
@@ -28,9 +29,10 @@ int isPalindrome(long x){
 
 
 }
+*/
 
-  int[] parse(long x){
-
+int[] parse(long x){
+  short length = length(x)
 
 
 int length(long x){
