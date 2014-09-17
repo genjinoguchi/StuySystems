@@ -1,0 +1,22 @@
+Aim: time to stop stringing you around.
+
+Quick tips:
+      Using the built-in manual from terminal (man)
+      
+      $ man ls ->>> It's gonna print LS(1) <- section of the manual that you are in.
+      $ man malloc -->>>> It prints MALLOC(3) <- different section. It's actually going to tell you what the function does in C.
+
+      $ man 3 printf -> Search the 3rd section.
+
+
+STRINGS!
+	C Strings are just char arrays. The null char at the end indicates the end of the string.
+	Functions:
+		char s[4];
+		s[0] = 'h';
+		s[1] = 'i';
+		s[2] = 0;
+
+		strlen(s)
+			Returns the length of the string.
+			Up to the null but not including.
