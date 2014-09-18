@@ -1,0 +1,27 @@
+3Aim: How to write functioning code
+
+Do Now: Write a c program that does the following.
+   1) Creates adn initializes a string
+   2) Calculates the length of the string and prints it out. (Do not write a function for this, just put all the code in main.
+
+
+Methods of declaring strings
+	char s[256];
+		Manually.
+	char s[256] = "Imagine";
+	     Allocates 256 bytes, puts "Imagine" in the first 7 bytes and adds a null at the 8th byte.
+	char s[] = "hello";
+	     Allocates 8 bytes, adds a null at the front.
+
+
+
+Functions
+	C function headers
+	  <return type> <function name>
+
+	Functions pass variables by VALUE.
+	You never have that nice java stuff where you pass an address, and change one thing and it changes something else for you.
+
+	Parameters will allocate some more memory for itself, and then copy the value that is inputted into the function.
+
+	Functions need to be defined before they can be used. (boooo)
