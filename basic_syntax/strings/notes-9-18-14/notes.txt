@@ -1,7 +1,7 @@
 3Aim: How to write functioning code
 
 Do Now: Write a c program that does the following.
-   1) Creates adn initializes a string
+   1) Creates and initializes a string
    2) Calculates the length of the string and prints it out. (Do not write a function for this, just put all the code in main.
 
 
