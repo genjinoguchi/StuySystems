@@ -3,13 +3,45 @@
 #include <string.h>
 #include <strheaders.h>
 
-
 int main(){
   
 
 
+}
+
+char * stringLength(char *s){
+
 
 
 }
+char * stringCopy(char *s,char *s){
 
-int stringLength
+
+
+}
+char * stringCopyN(char *s,char *s, short i){
+
+
+}
+char * stringAppend(char *s, char *s){
+
+
+}
+char * stringAppendN(char *s, char *s, short i){
+
+
+}
+char stringCompare(char *s, char *s){
+
+
+
+}
+char * stringSearchChar(char *s, char c){
+
+
+}
+char * stringSearchString(char *s, char *s){
+
+
+
+}
