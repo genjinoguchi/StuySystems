@@ -10,7 +10,10 @@ int main(){
 }
 
 char * stringLength(char *s){
+  int length;
+  int x;
 
+  length = sizeof(s);
 
 
 }
