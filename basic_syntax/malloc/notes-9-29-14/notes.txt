@@ -1,0 +1,29 @@
+Aim: Pointers and Malloc: The Dynamic Duo
+
+Dynamic Memory Allocation
+	malloc(int x)
+		   Allocates x bytes of memory (from the heap)
+		   
+		   Returns the addresss at the beginning of the allocation
+		   Returns a void *, always typecast to the correct poitner type.
+
+		   int *p;
+		   p = (int *)malloc(5 * sizeof(int) ); //Now p is an int array of size 5.
+
+	calloc(int n, int x)
+		   Allocates n * x bytes of memory
+		   Ensures that each bit is set to 0.
+		   Works like malloc in every other way.
+
+		   int *p;
+		   p = (int *)calloc(5, sizeof(int));
+
+
+	realloc(void *p, int x)
+		     Changes the amount of memory allocated to a given block.
+
+		     p must be a pointer to the beginning of an allocated block of memory, but it does not have to be the original pointer.
+		     You CANNOT realloc an array.
+		     You can only realloc a pointer to the beginning of an allocated block (something that was allocated using malloc or calloc)
+
+		     

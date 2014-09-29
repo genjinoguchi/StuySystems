@@ -1,4 +1,4 @@
-char * stringLength(char *);
+long stringLength(char *);
 char * stringCopy(char *,char *);
 char * stringCopyN(char *,char *, short i);
 char * stringAppend(char *, char *);

@@ -1,0 +1,11 @@
+Aim: Pointers and Malloc: The Dynamic Duo
+
+Dynamic Memory Allocation
+	malloc(int x)
+		   Allocates x bytes of memory (from the heap)
+		   
+		   Returns the addresss at the beginning of the allocation
+		   Returns a void *, always typecast to the correct poitner type.
+
+		   int *p;
+		   p = (int *)malloc(5 * sizeof(int) );
