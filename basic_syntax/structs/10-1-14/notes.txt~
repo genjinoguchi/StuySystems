@@ -1,0 +1,7 @@
+Aim: Let it be so.
+
+
+Struct
+	A collection of values in a single data type.
+
+	struct { int a; char x; };

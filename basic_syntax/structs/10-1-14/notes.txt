@@ -1,0 +1,46 @@
+Aim: Let it be so.
+
+
+Struct
+	A collection of values in a single data type.
+
+	struct { int a; char x; } s;
+
+	struct { int a; char x; } IS THE ENTIRE TYPE NAME.
+
+	Memory Alignment
+	       The struc will round up to the next multiple of four when taking memory.
+
+	Accessing the members of the struct
+		  s.a = 84;
+		  s.x = "h";
+
+
+	How to make declaring them less annoying?
+	    struct foo { int a; char c }
+	    	   foo is a prototype for this kind of struct, to be used later;
+		   A lot of libraries allow you to import structs/prototypes.
+
+		   struct foo s;
+		   struct foo t;
+		   
+		   However, it still requires that you type in struct.
+
+		   
+	Better way :
+	       typedef struct {int a; char c} foo;
+
+	Even better way : 
+	     typedef struct {
+	     	     	    int a;
+			    char c;
+			    } foo;
+
+
+
+
+Referencing other c files
+	If you want to combine different c files (and not just the headers and types) you basically just gcc file1.c file2.c.
+	Squish'em together.
+	whooop
+

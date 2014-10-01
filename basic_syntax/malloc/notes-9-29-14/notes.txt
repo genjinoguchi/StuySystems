@@ -26,4 +26,4 @@ Dynamic Memory Allocation
 		     You CANNOT realloc an array.
 		     You can only realloc a pointer to the beginning of an allocated block (something that was allocated using malloc or calloc)
 
-		     
+		     If x is smaller than the original size of the allocation, the extra bytes will be released.
