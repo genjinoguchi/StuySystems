@@ -1,0 +1,7 @@
+Aim: Make it so
+
+Separate Compilation
+	 You can combine multiple c files into a c program by including them all in one gcc command.
+	 ex : gcc test.c string.c foo.c ...etc
+
+	 You cannot have duplicate function or global variable names across these files.

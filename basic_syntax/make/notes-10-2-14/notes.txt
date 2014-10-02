@@ -1,0 +1,39 @@
+Aim: Make it so
+
+GCC Tags
+    gcc -c 
+    	Separate Compilation
+    gcc -o
+    	Specify the name
+	Ex: gcc -o awesome foo.c
+
+Separate Compilation
+	 You can combine multiple c files into a c program by including them all in one gcc command.
+	 ex : gcc test.c string.c foo.c ...etc
+
+	 You cannot have duplicate function or global variable names across these files.
+	 Try to include the function headers everywhere.
+
+
+	 If you don't have a main function in a file, you can run it like : 
+	    gcc -c file.c
+	 What happens? it gives you a file.o, which is a compiled file.
+
+	 You can actually run the .o files with gcc file.o file2.o
+
+
+
+	 That's because when you run gcc, it compiles, and then looks for other files as well as a main function in one of the linked file.
+	 	If you don't have a main, it's gonna give you a linker error.
+
+
+Make
+	Create compiling instructions and setup dependencies.
+
+	Standard name for make file : makefile
+
+	Syntax:
+		<TARGET>: <DEPENDENCIES>
+		TAB<RULES>
+
+	
