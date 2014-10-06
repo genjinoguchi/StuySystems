@@ -9,7 +9,7 @@ typedef struct n {
 
 //Function headers
 void print_list(node *);
-node *insert_front(node *);
+node *insert_front(node *,int data);
 node *free_list(node *);
 
 /*

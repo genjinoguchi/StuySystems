@@ -6,30 +6,18 @@
 
 int main() {
   node *head;
-  node a;
-  node b;
-  node c;
-  node d;
-  node e;
-  node f;
+  int x;
 
-  head = &a;
-  a.data=5;
-  a.next=&b;
-  b.data=6;
-  b.next=&c;
-  c.data=7;
-  c.next=&d;
-  d.data=8;
-  d.next=&e;
-  e.data=9;
-  e.next=&f;
-  f.data=10;
-  f.next=0;
+  for(x=0;x<10;x++){
+    head = insert_front(head, x);
+  }
+  print_list(head);
   
+  printf("\n\n");
+
   free_list(head);
-  //print_list(head);
-  
+  print_list(head);
+
   return 0;
 } 
 
@@ -44,10 +32,20 @@ void print_list(node *head) {
   
 }
 
-node *insert_front(node *head) {
-  
-  
-  
+node *insert_front(node *head, int data) {
+  if(head){
+    node *temp;
+    
+    temp = (node *)malloc(sizeof(node));
+    temp->data = data;
+    temp->next = head;
+    head = temp;
+  } else {
+    head = (node *)malloc(sizeof(node));
+    head->next=0;
+    head->data=data; 
+  }
+  return head;
   
 }
 
@@ -59,7 +57,7 @@ node *free_list(node *head){
   while(current){
     freethis = current;
     current = current->next;
-    //free(freethis);
+    free(freethis);
   }
   return head;
 }
