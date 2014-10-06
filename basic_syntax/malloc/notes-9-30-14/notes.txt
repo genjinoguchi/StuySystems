@@ -1,0 +1,32 @@
+Aim : Dynamic Memory Allocation
+
+Dynamic Memory Allocation
+	Normal memory allocation happens on the stack.
+	Stack memory gets released as functions pop off.
+
+	Dynamic memory is located on the heap, it persists even after the function that created it pops off the stack.
+		malloc goes here.
+	How do we release the dynamically allocated memory? FREE.
+	int *p;
+	p = (int *) malloc(20);
+	free(p);
+	The memory doesn't get deleted, or cleared; it's just available in the memory table.
+	Operating systems will automatically clear memory when the process ends, but what if the process never ends?
+	Better clear that memory.
+	
+	Declaring arrays normally makes them not dynamically allocated memory; when the function ends, the array's memory is cleared.
+
+
+
+Typedefs
+	Provide a new name for an existing data type.
+	typedef <real type> <new name>;
+
+	Ex:
+		typedef unsigned int size_t;
+
+
+Struct
+	A collection of values in a single data type.
+	
+	struct { int a; char x; } s;

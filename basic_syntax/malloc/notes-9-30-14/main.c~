@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+Write a c program that dynamically allocates a 10 double array and a 20 character string (including the terminating null).
+*/
+
+int main(){
+
+
+  return 0;
+}

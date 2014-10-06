@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct n {
+  int data;
+  struct n *next;
+} spesho;
+
+
+int main(){
+
+  spesho a;
+  spesho b;
+
+  a.data = 5;
+  b.data = 6;
+
+  *(a.next) = &b;
+  b.next = 0;
+
+
+  printf("a.data : %d\n", a.data);
+  printf("a.next : %d\n",
+
+
+  return 0;
+}

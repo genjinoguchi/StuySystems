@@ -1,0 +1,8 @@
+Aim: Make it so
+
+Do Now : Create a struct that contians 2 values
+   1) an int
+   2) a pointer to another struct of the sasme type.
+
+   Create 2 variabels of that struct type, set the ints to anything, but set the pointer of one to another, but set the pointer of one to the address of the other, adn set the otehr pointer to null.
+   Remind you of anything?

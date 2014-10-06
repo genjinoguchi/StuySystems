@@ -1,0 +1,6 @@
+Aim : Dynamic Memory Allocation
+
+Dynamic Memory Allocation
+	Normal memory allocation happens on the stack.
+	
+	Stack memory gets released as functions pop off.
