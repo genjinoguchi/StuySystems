@@ -1,0 +1,8 @@
+File IO
+
+
+open - <fcntl.h>
+     Add a file to the file table and returns its file descriptor.
+
+     If open fails, -1 si returned, extra error information can be found in errno
+     	errno is an int variable that can be found in <errno.h>, using strerror (in string.h) on errno will return a string description of the error.

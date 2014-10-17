@@ -1,0 +1,64 @@
+File IO
+
+
+open - <fcntl.h>
+     Add a file to the file table and returns its file descriptor.
+
+     If open fails, -1 si returned, extra error information can be found in errno
+     	errno is an int variable that can be found in <errno.h>, using strerror (in string.h) on errno will return a string description of the error.
+
+     open( <PATH>, <FLAGS>, <MODE> )
+     	   
+	   FLAG
+		O_RDONLY - read only.
+		O_WRONLY - write only.
+		O_RDWR - Read and write
+		O_APPEND - You're only adding.
+		O_TRUNC - Delete its contents and rewrite
+		O_CREAT - create a new file.
+		O_EXCL - When combined with O_CREAT, will return an error if the file exists.
+
+		Examples : 
+		int fd;
+		fd = open("foo.txt", O_CREAT | O_EXCL, 644)
+
+     	   MODE - only used when you're creating a new file (you put permissions here)
+	   	You set the permissions with a 3 digit octal number
+		
+		Octal numbers lead with a 0.
+		0644, 0777
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+//file control; needed for open() and close()
+
+#include <errno.h>
+//needed to use the int variable "errno" (error number), which contains information about errors resultant of using open() or close()
+
+#include <string.h>
+//needed to use strerror(errno), which will convert the error number into English words
+
+int main(){
+
+	int fd;
+	fd = open("foo",0_RDONLY);
+	//open returns the file descriptor of a file; here, of foo
+	//if there is a problem opening the file, open() will return -1 (since that can't be a descriptor)
+	//O_RDONLY means "open for reading only"
+
+	printf("file descriptor: %d\n",fd);
+	printf("error number: %d\n",errno);
+	printf("meaning of error number: %s\n",strerror(errno));
+
+	close(foo);
+	//good habit
+
+	return 0;
+}
+
+
+
+

@@ -1,0 +1,13 @@
+Bitwise Operators
+
+
+Bitwise Operators
+	& bitwise and
+	| bitwise or
+	~ bitwise not
+	^ bitwise xor
+
+
+	Logical operators work on each bit of a value
+	char c = 13;	  //00001101
+	char x = ^c;	  //11110010
