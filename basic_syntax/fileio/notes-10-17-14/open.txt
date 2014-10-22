@@ -66,7 +66,29 @@ open - <fcntl.h>
 
 	  umask( <MASK> );
 	  	 You can defin teh umask using a 3 digit octal #.
+	  	 To not restrict any permissions : umask(0000);
 
+      lseek - <unistd.h>
+      	  Set the current position in a file.
+	  
+	  lseek( <FILE DESCRIPTOR>, <OFFSET>, <WHENCE> )
+
+	  offset
+		Number of bytes to move the position by.
+
+	  whence
+		Where are you measuring the offset from, and from which direction
+		
+		Whence Constants: 
+
+		SEEK_SET
+			offset is evaluated from the beginnign of the file.
+		SEEK_CUR
+			offset is relative to teh current position in the file.
+		SEEK_END
+			offset is evaluated from the end of the file.
+	l
+	lseek returns the current offset from the beginning of the file.
 
 #include <stdio.h>
 #include <stdlib.h>
