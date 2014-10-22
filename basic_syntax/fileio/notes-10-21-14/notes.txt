@@ -1,0 +1,14 @@
+Aim: I need information!
+
+DN: Make a folder, and put some things in the folder.
+
+
+
+stat - <sys/stat.h>
+
+     Get information about a file.
+
+     stat( <PATH>, <STAT BUFFER> )
+
+     	   struct stat sb; //Not a typedef'ed struct
+	   stat("foo", &sb);
