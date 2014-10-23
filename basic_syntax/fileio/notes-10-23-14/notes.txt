@@ -1,0 +1,58 @@
+Where do priests live? The directory!
+
+
+Directories
+	A *nix directory is a file containing the names of the files within the directory along with basic information like file type.
+
+Moving fiels into and out of a directory means changin the directory file, not actualy moving any other data.
+
+
+
+
+getcwd - <unistd.h>
+       Get the current working directory of the program.
+
+       getcwd( <STRING BUFFER>, <SIZE> )
+       getcwd( s, n );
+
+
+chdir - <unistd.h>
+      Change the working directory
+
+      Returns 0 if successful, -1 (errno) if not.
+
+      Keep track of file paths when using chdir!
+
+
+opendir - <dirent.h>
+
+	Open a directory file	
+	It does not chdir.
+
+	opendir( <PATH> )
+	returns a pointer to a directory stream (DIR *), similar to a file descriptor.
+
+	DIR *d
+	d = opendir(".")
+
+	Coupled with closedir( d );
+
+readdir - <dirent.h>
+	readdir( <DIRECTORY STREAM> )
+	It returns the next entry, NULL if all entries ahve already been returned.
+
+	struct dirent - <sys/types.h>
+	       Some of the data members
+	       	    d_name: File name.
+		    d_type: File type as an int.
+
+	Example:
+		DIR *d;
+		d = opendir("somedir");
+		struct dirent *entry; //No need to allocate memory here.
+		entry = readdir( d );
+
+rewinddir - <dirent.h>
+	  Resets the directory stream to the beginning
+
+	 rewinddir( <DIRE CTORY STREAM> )
