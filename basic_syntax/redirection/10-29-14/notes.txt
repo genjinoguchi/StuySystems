@@ -32,6 +32,13 @@ File Redirection
 
       Redirection in C programs
 
+      	  dup - <unistd.h>
+	      Duplicates an existing entry in teh file table.
+	      Returns a new file descriptor for het duplicate entry.
+
+	      dup(fd)
+		returns the new file descriptor.
+
           dup2 - <unistd.h>
 	       Redirect one file descriptor to another.
 
@@ -41,3 +48,12 @@ File Redirection
 		    This makes all of the outputs go to the file "foo"
 
 		    you're going to lsoe everything in the fd2 file.
+
+
+	Using dup and dup2
+	      int fd1, fd2
+	      fd1 = dup(STDOUT_FILENO) ..sets fd1's file table entry to stdout
+
+	      dup2( fd2, STDOUT_FILENO) ..sets the STDOUT Fileno's entry to fd2
+
+	      dup2( fd1, STDOUT_FILENO) sets the STDOUT_FILENO's entry to fd1, which is stdout.
