@@ -1,0 +1,43 @@
+File Redirection
+     Changing the usual input/output behavior of a program.
+
+     Command line redirection
+     	     >
+		redirects stdout to a file.
+		Overwrites the contents of the file.
+
+		Example:
+		ls > file_list
+
+	     >>
+		redirects stdout to a file.
+		Appends the content to a file.
+		Cool trick: cat > somefile
+		     You get the world's shortest text editor.
+
+	     2> redirects sterr to a file.
+	     	Example: cat boo 2> errorfile
+
+	     &> redirects errythang to a file.
+
+	     <
+		Redirects stdin from a file.
+
+	     | (pipe)
+	       Redirect stdout from one ciommand to stdin of the next.
+
+	       ls | wc
+
+
+
+      Redirection in C programs
+
+          dup2 - <unistd.h>
+	       Redirect one file descriptor to another.
+
+	       dup2 (fd1, fd2)
+	       	    fd = open("foo", O_WRONLY | O_TRUNC);
+	       	    dup2( fd, STDOUT_FILENO);
+		    This makes all of the outputs go to the file "foo"
+
+		    you're going to lsoe everything in the fd2 file.
