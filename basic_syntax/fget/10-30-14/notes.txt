@@ -1,6 +1,0 @@
-Aim: Don't fget this lesson
-
-Create the string: "the point (x,y) is: (5, -1)"
-using the variables x and y.
-
-

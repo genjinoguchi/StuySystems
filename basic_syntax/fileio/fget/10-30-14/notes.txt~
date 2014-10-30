@@ -1,0 +1,20 @@
+Aim: Don't fget this lesson
+
+Create the string: "the point (x,y) is: (5, -1)"
+using the variables x and y.
+
+Function: sprintf( <DESTINATION>, <FORMAT STRING>, <VARIABLES>)
+	  Copy a format string into another string.
+	  
+
+fgets - <stdio.h>
+      Read in from a file stream and store it in a string.
+
+      fgets( <DESTINATION>, <BYTES>, <FILE POINTER>)
+
+      fgets( s, n, f)
+      	     Reads at most n characters from file stream f and stores it in s.
+
+	     File pointers are different from FILE DESCRIPTOR-- it's not just an integer.
+	     FILE * type, more complex than a file descriptor.
+	     stdin is a FILE * descriptor.

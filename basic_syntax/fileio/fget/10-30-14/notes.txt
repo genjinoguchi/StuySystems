@@ -1,0 +1,39 @@
+Aim: Don't fget this lesson
+
+Create the string: "the point (x,y) is: (5, -1)"
+using the variables x and y.
+
+Function: sprintf( <DESTINATION>, <FORMAT STRING>, <VARIABLES>)
+	  Copy a format string into another string.
+	  
+
+fgets - <stdio.h>
+      Read in from a file stream and store it in a string.
+
+      fgets( <DESTINATION>, <BYTES>, <FILE POINTER>)
+
+      fgets( s, n, f)
+      	     Reads at most n characters from file stream f and stores it in s.
+
+	     File pointers are different from FILE DESCRIPTOR-- it's not just an integer.
+	     FILE * type, more complex than a file descriptor.
+	     stdin is a FILE * descriptor.
+
+	     It will stop at a newline, end of file, or the byte limit.
+	     It keeps the newline character as part of the string, appends the NULL after.
+
+
+	     Read from standard in : fgets(s, 256, stdin)
+
+
+      strsep - <string.h>
+      	     Used for parsing a string with a common delimeter.
+
+	     strsep( <STRING>, <DELIMETER>)
+	     Locates the first occurrence of the delimeter in a string and replaces that character with NULL.
+
+	     Returns the beginning of the original string
+	     Sets a parameter to teh string starting at 1 index past the location of the new 0.
+
+
+	     
