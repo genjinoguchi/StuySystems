@@ -12,3 +12,34 @@ stat - <sys/stat.h>
 
      	   struct stat sb; //Not a typedef'ed struct
 	   stat("foo", &sb);
+
+     You use stat to configure the metadata.
+
+
+     PATH - it's just the path, not a file in the file table.
+
+     STAT BUFFER - Must be a pointer to a struct stat.
+     	  All of the file information gets put into the stat struct.
+	  
+	  Some of the fields in struct stat : 
+	       st_size
+	          file size in bytes
+
+	       st_uid, st_gid
+	       	  group and user id's.
+
+	       st_mode
+		  file permissions as an octal number.
+		  note : print octal numbers as %o.
+
+ 	       st_atime, st_mtime, st_ctime
+	          last access, last modification
+
+		  The time comes out as some wack number.
+		  
+		  #include <time.h>
+		  ctime(<POINTER>)
+
+
+     struct time_t t;
+     printf("The time is now : %s\n", time(&t))
