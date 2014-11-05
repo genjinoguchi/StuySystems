@@ -1,4 +1,4 @@
-Aim: Are your processes running? Then you should go out nad catch them!
+Aim: Are your processes running? Then you should go out nad catch them!s
 
 Do NOw: Run the commnad ps in a terminal. What do you see?
 
@@ -27,3 +27,45 @@ Processes
 	       The next process is called the child, and the original one is called the parent.
 	       
 	       The child process is a duplicate of the parent process. All parts of the parent process are copied, incldin stack and heap memory, nad the file table.
+	       If you fork twice, it's not going to make a fork of the child; it's going to make another fork of the original parent.
+
+
+
+THREAD VS PROCESS
+Process-- Standalone executable entity.
+	  The parent has no bearing on the child process.
+	  It has its own memory space and file table.
+Thread -- It's also a separate executable entity.
+          However, threads can't exist without the parent process that created them.
+	  They use the memory and file table of the original.
+
+
+
+The usage of fork
+
+int main() {
+    int f;
+    f = fork()
+    
+    if( !f ) {
+    	printf("I'm the child");
+    } else {
+        sleep(2); //Make sure that the child process runs first.
+        printf("I'm the parent!");
+    }	
+
+    printf("pid : %d \t f = %d\n",getPID(),f);
+    //Will print 2 pid's
+    return 0;
+}
+
+The result of this is:
+pid: 25258    f: 25259
+pid: 25259    f: 0
+
+forkbomb: while(1) fork()
+
+If a parent process ends before the child, the child's new parent process is 1.
+
+   getppid() - <unistd.h>
+   	     Gets the parent id.
