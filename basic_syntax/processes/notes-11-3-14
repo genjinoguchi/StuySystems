@@ -69,3 +69,162 @@ If a parent process ends before the child, the child's new parent process is 1.
 
    getppid() - <unistd.h>
    	     Gets the parent id.
+
+
+When running things in bash:
+	Say a.out has the parent function print something, while the child sleeps for 2 seconds then prints.
+	If you <C> c before the child process runs, it doens't affect the child at all. It's still oging to print.
+
+
+
+
+Aim: Waiting for Godot
+
+	wait - <unistd.h>
+		Stops a parent process from running unitl any child has provded status information to hte parent (usually the child has exited).
+
+		Returns the pid of the child that exited, or -1.
+
+	wait (int *status)
+		The parameter (n) is used to store information about how the process exited.
+		
+		WEXITSTATUS(status) //This is a preprocessor macro.
+			It's going to return the actual return value of main.
+			Usually return a 0, but you can use the status to pass messages between processes when one ends.
+			You can also do something to wait for specific children.
+
+
+
+
+
+int status;
+int w;
+
+w = wait( &status);
+           
+           
+           
+           
+           
+           
+ 
+           
+Aim: Waiting for the executioner.
+
+Better version of doing stuff:
+
+void childs_play(int f, int s) {
+	sleep(s);
+	printf("hiurr");
+	exit(s * 2);
+}
+void parents_work(int f, int s) {
+	exit(5);
+}
+
+int main() {
+	int f, status, w;
+
+	f = fork();
+
+	if (f) {
+		parents_work();
+	} else {
+		childs_play();
+	
+
+}
+        
+
+
+
+
+
+Different macros for the exit() command.
+	WIFEXITED(status)
+	WIFSIGNALED(status)
+	WTERMSIG(status)
+	WCOREDUMP(status)
+		If WIFSIGNALED(status) ->
+
+
+
+
+
+
+
+	waitpid - <unistd.h>
+		Waits for a specific child
+
+		waitpid(pid, status, options)
+			pid: The pid of the specific child to look for.
+				If it's -1, it will wait for any child.
+			status: &status -> stores the status in here.
+
+			options: It can specify different actions to see what you want to wait for.   
+
+
+
+
+
+
+	The exec family - <unistd.h>
+		There are a number of c functions that can be used to run other prgrams from within our own programs.
+
+		Replaces the current process with the new process with the new program, any code after a call to an exec function will be ignored.
+
+		execl
+			execl(<PATH>, <COMMAND>, <ARGS>, NULL)		
+			PATH : The path to the program (ex: "/bin/ls")
+
+			COMMAND: THe name of the program (ex: "ls")
+
+			ARGS: Each commnad line argument you with to give the program.
+				The last argument must be NULL
+
+			Example: execl("/bin/ls/", "ls", "-a", "-l", NULL )
+
+			When it's run, you lose control of the host process-- if you ran the above code, ls would run, end, and the process that you ran execl in would never run anything after exec.
+			Therefore, the better method of doing this would be to make a child process and do things from there.
+
+
+		
+
+
+		execlp(<PATH>, <COMMAND>, <ARGS>, NULL)
+
+			Works like execl, except it uses the PATH environment variable for command,s so you can use "ls" as the PATH instead of "/bin/ls"
+			Ex:
+			execlp("ls","ls","-a","-l",NULL);
+			
+
+		execvp( <PATH>, <ARGUMENT ARRAY>)
+
+			Argument array
+				Array of strings, with element 0 must be the name of the program to be executed and the last element must be null.
+				
+			Like execlp, the PATH argument will take the PATH environment variable into account.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
