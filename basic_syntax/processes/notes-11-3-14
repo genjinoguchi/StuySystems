@@ -228,8 +228,24 @@ IPC : Inter-Process-Communication
 	9) KILL
 
 
+Signals in c
+#include <signal.h>
 
+static void sighandler( int signo ){ <--- usually named signo
+       //it can only be accessed by the file that its in.
+       //This is important because you want signal handlers to be exclusive to processes/files.
 
+       if ( signo == SIGKILL ) {
+       	  printf("ahhh, you got me!");
+       } else if ( signo == SIGINT ) {
+       	  printf("Nice try! \n");
+       }
+}
+
+int main() {
+    signal( SIGKILL, sighandler);
+    signal( SIGINT, sighandler);
+    
 
 
 
