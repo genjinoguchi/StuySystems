@@ -208,6 +208,24 @@ Different macros for the exit() command.
 
 
 
+AIM: Sending mixed signals can be deadly.
+
+IPC : Inter-Process-Communication
+
+1) Signals
+	Int sent to a process.
+	The Int coresponds ot a signal #
+
+	Kill
+		Sends a signal to a process.
+		Kill -<SIGNO> <PID>
+	
+	Some of the more comonly used signlas:
+	1) HUP (Hang up)
+	2) Int
+	3) QUIT
+	4) ABRT
+	9) KILL
 
 
 
