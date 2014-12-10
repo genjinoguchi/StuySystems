@@ -1,0 +1,5 @@
+Semaphores (created by Edsgar Dijkstra) <-- first time ever typing jk
+	IPC construct used to control access to a shared resource (like a file or shared memory)
+
+	Essentially, a semaphore is a counter that represents how many processes can access a resource at any given time.
+	

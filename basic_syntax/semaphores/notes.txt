@@ -1,0 +1,132 @@
+Semaphores (created by Edsgar Dijkstra) <-- first time ever typing jk
+	IPC construct used to control access to a shared resource (like a file or shared memory)
+
+	Essentially, a semaphore is a counter that represents how many processes can access a resource at any given time.
+
+		If a sempahore has a value of 3, then it can have 3 active  "users".
+		If a semaphore has a value of 0, then it is unavailable.
+
+	Most semaphores are "atomic", meaning they will not be split up into multiple processor instructions.
+		They take up one cycle of the processor.
+
+
+Operations
+	Create the semaphore.
+	Set an initial value.
+	Up(S) / V(S)
+		Release the semaphore to signal you are done with its associate resource.
+
+		Pseudocode
+		S++;
+
+	Down(S) / P(S)
+		Attempt to take the semaphore.
+
+		If the semaphore is 0, wait for it to be available.
+
+		pseudocode:
+			while( S==0 )
+				wait
+			S--
+
+
+semget - <sys/types.h> <sys/ipc.h> <sys/sem.h>
+
+	Create/get access to a semaphore.
+	NOTE this is not the same as Up(S), the semaphore is not modified by semget.
+
+	Returns a semaphore descriptor or -1.
+
+
+	Syntax: 
+		semget( key, amount, flags )
+			key
+				Unique semaphore identifier (use ftok)
+			amount
+				Semaphores are actually stored as semaphore sets with possibly many semaphores stored together. This parameter sets the number of semaphroes to create/get.
+			flags
+				Signals whether to create the semaphore.
+				Includes permissions for the semaphore.
+
+				IPC_CREAT
+				IPC_EXCL
+		Example:
+			int semd;
+			semd = semget( ftok("file/dir"), 1, 0644 | IPC_CREAT);
+
+
+semctl  - <sys/types.h> <sys/ipc.h> <sys/sem.h>
+	Control the semaphore, including:
+		Set the semaphore value.
+		Remove the current semaphore.
+		Get the current value.
+
+	Syntax:
+		semctl(descriptor, index, operation, buffer);
+		
+		descriptor
+			The return value of semget
+		index
+			The index of hte semaphore you want ot control in teh semaphore set identified by the descriptor.
+			For a single semaphore set, 0.
+		Operation
+			One of the following constatns (there are others as well)
+			
+			IPC_RMID: Remove the semaphore.
+			SETVAL: Set the value (requires buffer)
+			GETVAL: Return the value.
+			IPC_STAT: Populate the buffer with information about the semaphore.
+		Buffer
+			Variable for storing information about the semaphore (type union semun)
+			
+			union semun {
+				int val; //value for SETVAL
+				struct semid_ds * buf; //buffer for IPC_STAT and IPC_SET
+				u_short array;
+
+NOTE: UNIONS.
+
+struct foo {
+	int x;
+	double y;
+};
+struct foo myfoo;
+union bar {
+	int x;
+	double y;
+};
+union bar mybar;
+
+foo.x = 5;
+bar.y = 8.32;
+
+The difference between union and struct is by the way that they work.
+
+		Examples:
+
+		Setting the semaphore:
+			Union semun su;
+			su.val = 3;
+			semctl( semd, 0, SETvAL, su);
+
+		Getting the value:
+			int sval;
+			sval = semctl( semd, 0, GETVAL);
+
+		Removing the smeaphore
+			semctl( semd, 0, IPC_RMID);
+
+
+Full Example
+
+int main()
+{
+	int key = ftok("makefile", ""a");
+	int semid;
+	
+	if( strcmp(argv[1], "--create") == 0 ) {
+		smedid = semget(key, 1, 0644 | IPC_CREAT );
+
+		union semun su;
+		su.val = 1;
+		semctl( semid, 0, SETVAL, su)l
