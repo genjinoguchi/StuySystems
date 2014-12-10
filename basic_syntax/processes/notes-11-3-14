@@ -208,10 +208,44 @@ Different macros for the exit() command.
 
 
 
+AIM: Sending mixed signals can be deadly.
+
+IPC : Inter-Process-Communication
+
+1) Signals
+	Int sent to a process.
+	The Int coresponds ot a signal #
+
+	Kill
+		Sends a signal to a process.
+		Kill -<SIGNO> <PID>
+	
+	Some of the more comonly used signlas:
+	1) HUP (Hang up)
+	2) Int
+	3) QUIT
+	4) ABRT
+	9) KILL
 
 
+Signals in c
+#include <signal.h>
 
+static void sighandler( int signo ){ <--- usually named signo
+       //it can only be accessed by the file that its in.
+       //This is important because you want signal handlers to be exclusive to processes/files.
 
+       if ( signo == SIGKILL ) {
+       	  printf("ahhh, you got me!");
+       } else if ( signo == SIGINT ) {
+       	  printf("Nice try! \n");
+       }
+}
+
+int main() {
+    signal( SIGKILL, sighandler);
+    signal( SIGINT, sighandler);
+    
 
 
 
