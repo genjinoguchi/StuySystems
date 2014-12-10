@@ -1,0 +1,35 @@
+semop
+	Perform semaphore operations (like up/down)
+	All opperations performed via semop are atomic!
+	semop(descriptor, operation buffer, amount)
+
+			  Descriptor
+			  Amount
+				The amount of semaphores you want to operate on in the semaphore set
+			  	For a single semaphore set, 1.
+			  Operation buffer
+			  	    A pointer to a struct sembuf value
+				    struct sembuf {
+				    	   short sem_op;  //Different operations
+					   	 /*
+						  * -1 : Down(S)
+						  *  1 : Up(S)
+						  * Any -/+ number will work, you will be requesting/releasing that value from the semaphore.
+						  *  0 : Wait until the semaphore reaches 0.
+						  */
+					   short sem_num; //The index of the semaphore that you're working on.
+					   short sem_flag;
+				    }
+
+				    
+
+The idea of semaphore up and down:
+    up( s )
+    	s++
+    down( s )
+    	  while (s==0) {
+	  	wait
+	  }
+	  s--
+
+	  
