@@ -1,0 +1,28 @@
+Aim: Ceci n'est pas une pipe.
+
+Pipe
+	A conduit between 2 separate processes
+
+	Pipes are unidirectional (a single pipe must be either read- or write-only in a process).
+	The flow of information is always one-directional.
+
+	You can transfer any data you like through a pipe using read/write
+
+
+Two types of pipes: named and unnamed
+Unnamed: 
+	Unnamed pipes have no external identification (like a descriptor or name).
+
+	pipe - <unistd.h>
+		Create an unnamed pipe.
+
+		Returns 0 if the pipe was created, 01 if not.
+
+		Syntax:
+		pipe(int descriptors[2]);
+
+			Descriptors:	
+			Array that will contain the descriptors for each end of the pipe.
+
+Named:
+
