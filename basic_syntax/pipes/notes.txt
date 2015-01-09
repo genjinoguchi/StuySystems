@@ -24,5 +24,62 @@ Unnamed:
 			Descriptors:	
 			Array that will contain the descriptors for each end of the pipe.
 
-Named:
+
+
+"A pipe by any other name..."
+
+
+Named Pipes
+       Also known as "FIFO."
+       Same as unnamed pipes except FIFOs have a name that can be used to identify them via different programs.
+
+       
+       mkfifo :
+            Shell command to make a FIFO.
+
+	    $ mkfifo <pipe name>
+
+	    When you run this, the pipe shows up in the directory.
+	         They have paths.
+		 They have permissions.
+
+
+	mkfifo() - <sys/types.h>, <sys/stat.h>
+	    C function to create a FIFO
+	    Returns - on success and -1 on failure.
+
+	    Once created, the FIFO acts like a regular file, and we can use open, read, write and close on it.
+	    
+	    mkfifo( <name>, <permissions> )
+
+
+
+
+
+Connections between server and client
+
+server <-----------request pipe-----------------------client
+  |                                                     |
+  ---------->>>-------response----------------------->--
+
+The request pipe is also known as the "well known pipe." All the clients are going to send messages through it.
+
+**NOTE**: The process on the receiving end is the one that should be making the pipe.
+
+
+
+
+
+The general order of things
+
+Handshake:
+The server creates the well-knonw pipe.
+The client creates the private pipe with the name as its PID.
+The client sends a message to the well known pipe with a message containing its pid
+The server sends the new message to the private pipe (name PID).
+The client receives the message.
+printf("Handshake");
+
+
+Exiting
 
